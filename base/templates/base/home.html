@@ -1,0 +1,26 @@
+{% extends "app.html" %} 
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+    <div class="home-container">
+
+        <div>
+            <h3>Browse Topic</h3>
+        </div>
+
+        <a href="{% url 'room-form' %}">Click to create room</a>
+        <div>
+            {% for room in rooms %}
+                <div>
+                    <a href="{% url 'update-room' room.id %}">Edit</a>
+                    <a href="{% url 'delete-room' room.id %}">Delete</a>
+                </div>
+                <span>@{{ room.host.username }}</span>
+                <h5>{{ forloop.counter }} -- <a href="#">{{room.name}}</a> </h5>
+                <small>{{room.topic.name}}</small>
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

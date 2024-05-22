@@ -1,0 +1,16 @@
+{% extends "app.html" %} 
+{% block title %} Form {% endblock %}
+
+{% block content %}
+    <h1>Hello World</h1>
+    <div class="container mb-3">
+        <a href="{% url 'home' %}">Go Back</a>
+    </div>
+    <div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}
