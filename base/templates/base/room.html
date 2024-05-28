@@ -2,5 +2,27 @@
 {% block title %} Room {% endblock %}
 
 {% block content %}
-    <h1>Hello World From Room</h1>
+    <h1>{{room.name}}</h1>
+    <p>{{room.description}}</p>
+    <div class="comment-wrapper">
+        <h3>Conversation</h3>
+        <hr>
+
+        {% for chat in chats %}
+            <div>
+                <small>@{{chat.user}} {{chat.created|timesince}} ago</small>
+                <p>{{chat.body}}</p>
+                <hr>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if request.user.is_authenticated %}
+        <div class="comment-wrapper">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="text" name="body" placeholder="write your message">
+            </form>
+        </div>
+    {% endif %}
 {% endblock %}

@@ -39,7 +39,7 @@
                         {% endif %}
                         
                         <span>@{{ room.host.username }}</span>
-                        <h5>{{ forloop.counter }} -- <a href="#">{{room.name}}</a> </h5>
+                        <h5>{{ forloop.counter }} -- <a href="{% url 'room' room.id %}">{{room.name}}</a> </h5>
                         <small>{{room.topic.name}}</small>
                         <hr>
                     </div>
