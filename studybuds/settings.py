@@ -81,15 +81,15 @@ WSGI_APPLICATION = 'studybuds.wsgi.application'
 
 DATABASES = {
     'default': {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": 'db.sqlite3',
-        #"USER": 'root',  
-        #'PASSWORD': '',  
-        #'HOST': '127.0.0.1',  
-        #'PORT': '3306',  
-        #'OPTIONS': {  
-        #    'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
-        #}
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": 'study',
+        "USER": 'root',  
+        'PASSWORD': '',  
+        'HOST': '127.0.0.1',  
+        'PORT': '3306',  
+        'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+        }
     }
 }
 
